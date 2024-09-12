@@ -1,11 +1,8 @@
-# kate-antonova-list-app
-List Application for Brain Station capstone project 
+## Kate's List App
 
-# Project Title
+# LISTS (name subject to change: possibly ListsHub)
 
-LISTS (subject to change: possibly ListsHub)
-
-## Overview
+### Overview
 
 LISTS is a user-friendly app designed to help users create, manage and reuse their lists for various activities such as travel packing, wellness, and periodic tasks. Users can log in, select from predefined lists or categories, customize them based on their needs and save these lists for future use, or create their own from scratch. 
 
@@ -53,16 +50,24 @@ Planning to integrate some AI API in the future to help users generate a list fr
 ### Sitemap
 
 Please see all-pages.png
+![Wireframe of all pages](all-pages.png)
 
-Login/Sign Up Page: Allows users to log in or create an account.
+
+Login/Sign Up Page: Allows users to log in or create an account. 
+
+![Log in and sign up pages](log-in-sign-up.png)
 
 Home (List of My Lists): Displays all saved lists for the logged-in user.
 List Page: Displays all list items within a user's list.
+![My Lists and a List pages](users-list-names-and-lists.png)
 
 Inspiration Page: Suggests categories to inspire users to create new lists.
+![Inspiration pages](preset-lists-for-inspiration.png)
+
 Category Page: Suggests lists within a selected main category (e.g., Travel -> Hot Country, Snowboarding etc.).
 Category's List Page: Shows a list of predefined lists inside the selected category.
 Suggested List's Editable Page: A page where users can choose to use a predefined list, add or remove items from it.
+![Suggested List's Editable Page](ability-to-use-and-edit-preset-lists.png)
 
 ### Mockups
 
