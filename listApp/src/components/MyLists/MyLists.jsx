@@ -31,7 +31,7 @@
 // export default MyLists;
 
 
-import { Link, useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import { Link, useNavigate } from 'react-router-dom';
 import './MyLists.scss';
 import { useState } from 'react';
 
@@ -70,7 +70,7 @@ const MyLists = () => {
 
     return (
         <div>
-            <h2 className="my-lists__header">MY LISTS</h2>
+            <h1 className="my-lists__header">My Lists</h1>
             {/* Add New List Form */}
             <form onSubmit={handleFormSubmit} className="my-lists__form">
                 <input

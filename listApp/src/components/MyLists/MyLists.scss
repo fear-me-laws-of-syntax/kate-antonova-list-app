@@ -47,6 +47,7 @@
 .my-lists {
     &__header {
         text-align: center;
+        font-weight: bold;
     }
 
     &__form {
@@ -88,7 +89,7 @@
 }
 
 li {
-    background-color: rgb(248, 179, 231);
+    background-color: #f8b3e7;
     border-radius: 30px;
     display: flex;
     align-items: center;
