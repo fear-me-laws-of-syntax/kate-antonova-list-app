@@ -1,0 +1,24 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+li.checked {
+    text-decoration: line-through;
+    color: rgb(169, 163, 163);
+    /* Strikethrough style */
+}
+
+input[type='checkbox'] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    accent-color: rgb(89, 138, 89);
+
+    /* Green background for the checkmark */
+}
