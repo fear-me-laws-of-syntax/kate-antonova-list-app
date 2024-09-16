@@ -1,36 +1,3 @@
-// import { Link } from 'react-router-dom';
-// import './MyLists.scss';
-// import { useState } from 'react';
-
-// const MyLists = () => {
-//     const [lists, setLists] = useState(['Hot Country', 'Snowboard Trip', 'Camping', 'Music Festival', 'Beach Trip']); // Example data
-
-//     // Function to delete a list item with confirmation
-//     const deleteListItem = (indexToDelete) => {
-//         const confirmDelete = window.confirm('Are you sure you want to delete this list?');
-//         if (confirmDelete) {
-//             setLists(lists.filter((_, index) => index !== indexToDelete));
-//         }
-//     };
-
-//     return (
-//         <div>
-//             <h2 className="my-lists__header">MY LISTS</h2>
-//             <ul>
-//                 {lists.map((listName, index) => (
-//                     <li key={index} className="list-item">
-//                         <Link to={`/list/${listName.toLowerCase().replace(' ', '-')}`}>{listName}</Link>
-//                         <button className="delete-btn" onClick={() => deleteListItem(index)}>🗑️</button>
-//                     </li>
-//                 ))}
-//             </ul>
-//         </div>
-//     );
-// };
-
-// export default MyLists;
-
-
 import { Link, useNavigate } from 'react-router-dom';
 import './MyLists.scss';
 import { useState } from 'react';
@@ -69,7 +36,7 @@ const MyLists = () => {
     };
 
     return (
-        <div>
+        <div className="my-lists">
             <h1 className="my-lists__header">My Lists</h1>
             {/* Add New List Form */}
             <form onSubmit={handleFormSubmit} className="my-lists__form">
@@ -81,13 +48,13 @@ const MyLists = () => {
                     placeholder="Add a new list..."
                     className="my-lists__input"
                 />
-                <button type="submit" className="my-lists__submit-btn"> + Add List</button>
+                <button type="submit" className="my-lists__submit-button"> + Add List</button>
             </form>
-            <ul>
+            <ul className="my-lists__list">
                 {lists.map((listName, index) => (
-                    <li key={index} className="list-item">
-                        <Link to={`/list/${listName.toLowerCase().replace(' ', '-')}`}>{listName}</Link>
-                        <button className="delete-btn" onClick={() => deleteListItem(index)}>🗑️</button>
+                    <li key={index} className="my-lists__item">
+                        <Link to={`/list/${listName.toLowerCase().replace(' ', '-')}`} className="my-lists__link">{listName}</Link>
+                        <button className="my-lists__delete-button" onClick={() => deleteListItem(index)}>🗑️</button>
                     </li>
                 ))}
             </ul>

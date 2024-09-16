@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login/Login';
-// import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import MyLists from './components/MyLists/MyLists';
 import ListDetail from './components/ListDetail/ListDetail';
 import Suggestions from './components/Suggestions/Suggestions';
@@ -13,7 +13,7 @@ import './App.scss';
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
+      {location.pathname !== '/login' && <Navbar />}
       <Routes>
         <Route path="/login" element={<Login />} />
         {/* <Route path="/signup" element={<SignUp />} /> */}
