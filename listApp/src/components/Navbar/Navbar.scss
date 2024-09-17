@@ -1,6 +1,7 @@
 .navbar {
 
     &__links {
-        background-color: none;
+        display: flex;
+        justify-content: space-around;
     }
 }

@@ -20,21 +20,34 @@ const ListDetail = () => {
         );
     };
 
+    const deleteItem = (index) => {
+        setItems((prevItems) => prevItems.filter((_, i) => i !== index));
+    };
+
     return (
-        <div>
-            <h2>{id.replace('-', ' ')}</h2>
-            <ul>
+        <div className="list-detail">
+            <h2 className="list-detail__title">{id.replace('-', ' ')}</h2>
+            <ul className="list-detail__items">
                 {items.map((item, index) => (
-                    <li key={index} className={item.checked ? 'checked' : ''}>
-                        {/* Apply the 'checked' class conditionally to <li> */}
-                        <label>
+                    <li key={index} className={`list-detail__item ${item.checked ? 'list-detail__item--checked' : ''}`}>
+                        <label className="list-detail__label">
                             <input
                                 type="checkbox"
                                 checked={item.checked}
                                 onChange={() => toggleItemCheck(index)}
+                                className="list-detail__checkbox"
                             />
                             {item.name}
                         </label>
+                        {/* Bin Icon for Deleting the Item */}
+                        <span
+                            className="list-detail__delete-icon"
+                            onClick={() => deleteItem(index)}
+                            role="button"
+                            aria-label="Delete item"
+                        >
+                            🗑️ {/* Unicode character for bin icon */}
+                        </span>
                     </li>
                 ))}
             </ul>
@@ -43,61 +56,3 @@ const ListDetail = () => {
 };
 
 export default ListDetail;
-
-
-// import React, { useState } from 'react';
-// import { useParams } from 'react-router-dom';
-// import './ListDetail.scss';
-
-// const ListDetail = () => {
-//     const { id } = useParams();
-//     const [items, setItems] = useState([
-//         { name: 'Sunscreen', checked: true },
-//         { name: 'Beach Towel', checked: true },
-//         { name: 'Water Bottle', checked: true },
-//         { name: 'SPF Cream', checked: false },
-//         { name: 'Granola Bar', checked: false },
-//     ]);
-
-//     const toggleItemCheck = (index) => {
-//         setItems((prevItems) =>
-//             prevItems.map((item, i) =>
-//                 i === index ? { ...item, checked: !item.checked } : item
-//             )
-//         );
-//     };
-
-//     const deleteItem = (index) => {
-//         setItems((prevItems) => prevItems.filter((_, i) => i !== index));
-//     };
-
-//     return (
-//         <div>
-//             <h2>{id.replace('-', ' ')}</h2>
-//             <ul style={styles.list}>
-//                 {items.map((item, index) => (
-//                     <li key={index} style={item.checked ? styles.checkedItem : styles.item}>
-//                         <input
-//                             type="checkbox"
-//                             checked={item.checked}
-//                             onChange={() => toggleItemCheck(index)}
-//                             style={styles.checkbox}
-//                         />
-//                         {item.name}
-//                         {/* Bin Icon for Deleting the Item */}
-//                         <span
-//                             style={styles.deleteIcon}
-//                             onClick={() => deleteItem(index)}
-//                             role="button"
-//                             aria-label="Delete item"
-//                         >
-//                             🗑️ {/* Unicode character for bin icon */}
-//                         </span>
-//                     </li>
-//                 ))}
-//             </ul>
-//         </div>
-//     );
-// };
-
-// export default ListDetail;

@@ -3,7 +3,7 @@ import './MyLists.scss';
 import { useState } from 'react';
 
 const MyLists = () => {
-    const [lists, setLists] = useState(['Hot Country', 'Snowboard Trip', 'Camping', 'Music Festival', 'Beach Trip']); // Example data
+    const [lists, setLists] = useState(['Beach trip', 'Snowboard Trip', 'Camping', 'Music Festival', 'Beach Trip']); // Example data
     const [newListName, setNewListName] = useState(''); // State to manage new list input
     const navigate = useNavigate(); // Hook to manage redirection
 
