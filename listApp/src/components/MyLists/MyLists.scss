@@ -37,7 +37,7 @@
     }
 
     &__submit-button:hover {
-        background-color: #d07095;
+        background-color: #c87696;
     }
 
     &__list {
@@ -54,6 +54,11 @@
         justify-content: space-between;
         padding: 0.5rem 1rem;
         margin-bottom: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e7a6d6;
+        }
     }
 
     &__link {
@@ -66,7 +71,11 @@
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 0.8rem;
+        font-size: 1rem;
         margin-left: 1rem;
+
+        &:hover {
+            transform: scale(1.2);
+        }
     }
 }

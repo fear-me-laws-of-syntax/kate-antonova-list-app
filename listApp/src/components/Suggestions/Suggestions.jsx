@@ -1,5 +1,8 @@
 import './Suggestions.scss';
 
+// import express from 'express';
+// const router = express.Router();
+
 const suggestionsData = [
     { title: 'Travel', color: 'soft-pink', imageSrc: 'src/assets/images/travel.jpg' },
     { title: 'Packing', color: 'soft-green', imageSrc: 'src/assets/images/packing.png' },

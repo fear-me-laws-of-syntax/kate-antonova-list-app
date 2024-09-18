@@ -21,7 +21,10 @@ const ListDetail = () => {
     };
 
     const deleteItem = (index) => {
-        setItems((prevItems) => prevItems.filter((_, i) => i !== index));
+        const confirmDelete = window.confirm('Are you sure you want to delete this list item?');
+        if (confirmDelete) {
+            setItems((prevItems) => prevItems.filter((_, i) => i !== index));
+        }
     };
 
     return (
@@ -46,7 +49,7 @@ const ListDetail = () => {
                             role="button"
                             aria-label="Delete item"
                         >
-                            🗑️ {/* Unicode character for bin icon */}
+                            🗑️
                         </span>
                     </li>
                 ))}

@@ -45,8 +45,8 @@
         margin: 0 1rem;
         transition: color 0.2s ease;
 
-        // &:hover {
-        //     color: #ff0000;
-        // }
+        &:hover {
+            transform: scale(1.3);
+        }
     }
 }

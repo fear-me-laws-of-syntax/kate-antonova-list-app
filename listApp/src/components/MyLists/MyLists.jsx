@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './MyLists.scss';
 import { useState } from 'react';
 
@@ -19,20 +19,27 @@ const MyLists = () => {
 
         // Add new list to lists state
         setLists([...lists, newListName]);
+        alert('Your new list has been successfully created!📋✍🏼');
 
         // Redirect to the new list page
-        navigate(`/list/${newListName.toLowerCase().replace(' ', '-')}`);
+        navigate(`/list/${newListName.replace(' ', '-')}`);
 
         // Clear input field after submission
         setNewListName('');
     };
 
     // Function to delete a list item with confirmation
-    const deleteListItem = (indexToDelete) => {
+    const deleteListItem = (e, indexToDelete) => {
+        e.stopPropagation(); // Prevent navigation when clicking the delete button
         const confirmDelete = window.confirm('Are you sure you want to delete this list?');
         if (confirmDelete) {
             setLists(lists.filter((_, index) => index !== indexToDelete));
         }
+    };
+
+    // Function to handle item click (except bin)
+    const handleItemClick = (listName) => {
+        navigate(`/list/${listName.replace(' ', '-')}`);
     };
 
     return (
@@ -52,9 +59,18 @@ const MyLists = () => {
             </form>
             <ul className="my-lists__list">
                 {lists.map((listName, index) => (
-                    <li key={index} className="my-lists__item">
-                        <Link to={`/list/${listName.toLowerCase().replace(' ', '-')}`} className="my-lists__link">{listName}</Link>
-                        <button className="my-lists__delete-button" onClick={() => deleteListItem(index)}>🗑️</button>
+                    <li
+                        key={index}
+                        className="my-lists__item"
+                        onClick={() => handleItemClick(listName)}
+                    >
+                        <span className="my-lists__link">{listName}</span>
+                        <button
+                            className="my-lists__delete-button"
+                            onClick={(e) => deleteListItem(e, index)}
+                        >
+                            🗑️
+                        </button>
                     </li>
                 ))}
             </ul>
