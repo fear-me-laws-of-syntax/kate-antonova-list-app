@@ -33,10 +33,8 @@ const MyLists = () => {
         setLists([...lists, newListTitle]);
         alert('Your new list has been successfully created!📋✍🏼');
 
-        // Redirect to the new list page
         navigate(`/list/${data.list_id}`);
 
-        // Clear input field after submission
         setNewListTitle('');
     };
 
@@ -67,7 +65,7 @@ const MyLists = () => {
                     type="text"
                     value={newListTitle}
                     onChange={handleInputChange}
-                    maxLength="50"
+                    maxLength="100"
                     placeholder="Add a new list..."
                     className="my-lists__input"
                 />

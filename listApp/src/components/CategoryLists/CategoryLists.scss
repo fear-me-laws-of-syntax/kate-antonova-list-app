@@ -1,0 +1,84 @@
+.category-lists {
+    &__title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    &__items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        margin-bottom: 10px;
+        font-size: 24px;
+        background-color: #f9e3f3;
+        padding: 0.5rem 2rem;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #e3d5e9;
+        }
+    }
+
+    &__item--checked {
+        text-decoration: line-through;
+        color: rgb(189, 177, 177);
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__checkbox {
+        margin-right: 10px;
+        width: 16px;
+        height: 16px;
+        accent-color: rgb(89, 138, 89);
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        border: 2px solid #f9e3f3;
+        border-radius: 30px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        outline: none;
+        width: 65%;
+    }
+
+    &__input:focus {
+        border-color: #f9e3f3;
+    }
+
+    &__submit-button {
+        background-color: #f9e3f3;
+        border: none;
+        border-radius: 30px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 30%;
+    }
+
+    &__submit-button:hover {
+        background-color: #c87696;
+    }
+}

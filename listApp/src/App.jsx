@@ -5,7 +5,7 @@ import MyLists from './components/MyLists/MyLists';
 import ListDetail from './components/ListDetail/ListDetail';
 import Suggestions from './components/Suggestions/Suggestions';
 import CategoryLists from './components/CategoryLists/CategoryLists';
-import SuggestedListDetail from './components/SuggestedListDetail/SuggestedListDetail';
+import CategoryListDetail from './components/CategoryListDetail/CategoryListDetail';
 
 import './App.scss';
 
@@ -23,8 +23,8 @@ function App() {
 
         {/* List Suggestions*/}
         <Route path="/suggestions" element={<Suggestions />} />
-        <Route path="/suggestions/:category" element={<CategoryLists />} />
-        <Route path="/suggestions/:category/:listId" element={<SuggestedListDetail />} />
+        <Route path="/category/:categoryId" element={<CategoryLists />} />
+        <Route path="/category/:categoryId/:listId" element={<CategoryListDetail />} />
       </Routes>
     </Router>
   );

@@ -47,7 +47,7 @@ const ListDetail = () => {
     // Handle form submission to add a new item
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        if (newListTitle.trim() === '') return; // Don't allow empty items
+        if (newListTitle.trim() === '') return;
 
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/lists/${id}/items`, {
@@ -57,7 +57,7 @@ const ListDetail = () => {
                 ...prevItems,
                 items: [...prevItems.items, data]
             }));
-            setNewListTitle(''); // Clear input field after submission
+            setNewListTitle('');
         } catch (error) {
             console.error("Failed to add item", error);
         }
@@ -77,7 +77,7 @@ const ListDetail = () => {
                     type="text"
                     value={newListTitle}
                     onChange={handleInputChange}
-                    maxLength="50"
+                    maxLength="100"
                     placeholder="Add a new item…"
                     className="list-detail__input"
                 />
