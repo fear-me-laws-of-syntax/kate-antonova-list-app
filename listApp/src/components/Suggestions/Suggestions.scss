@@ -7,9 +7,9 @@
     }
 
     &__grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         padding: 0 1rem;
     }
 
@@ -24,6 +24,10 @@
         color: white;
         font-weight: bold;
         transition: transform 0.3s ease;
+        box-sizing: border-box;
+        width: calc(50% - 1rem);
+        margin-bottom: 1rem;
+        max-width: 20rem;
 
         &-title {
             z-index: 1;
@@ -38,22 +42,18 @@
 
         &--soft-pink {
             background-color: #f8b3e7;
-            /* Soft pastel pink */
         }
 
         &--soft-green {
             background-color: #b8d5b8;
-            /* Soft pastel green */
         }
 
         &--soft-blue {
             background-color: #a1c4fd;
-            /* Soft pastel blue */
         }
 
         &--soft-purple {
             background-color: #cda9fa;
-            /* Soft pastel purple */
         }
     }
 
@@ -64,7 +64,6 @@
         width: 60%;
         height: 60%;
         transform: translateY(-50%) rotate(10deg);
-        /* Tilted effect */
         overflow: hidden;
         z-index: 0;
     }

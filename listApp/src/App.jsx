@@ -16,13 +16,12 @@ function App() {
       {location.pathname !== '/login' && <Navbar />}
       <Routes>
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/signup" element={<SignUp />} /> */}
 
-        {/* My Lists Routes */}
+        {/* My Lists */}
         <Route path="/" element={<MyLists />} />
         <Route path="/list/:id" element={<ListDetail />} />
 
-        {/* List Suggestions Routes */}
+        {/* List Suggestions*/}
         <Route path="/suggestions" element={<Suggestions />} />
         <Route path="/suggestions/:category" element={<CategoryLists />} />
         <Route path="/suggestions/:category/:listId" element={<SuggestedListDetail />} />

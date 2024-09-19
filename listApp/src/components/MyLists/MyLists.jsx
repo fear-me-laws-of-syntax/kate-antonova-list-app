@@ -1,45 +1,61 @@
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './MyLists.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MyLists = () => {
-    const [lists, setLists] = useState(['Beach trip', 'Snowboard Trip', 'Camping', 'Music Festival', 'Beach Trip']); // Example data
-    const [newListName, setNewListName] = useState(''); // State to manage new list input
+    const [lists, setLists] = useState([]); // Example data
+    const [newListTitle, setNewListTitle] = useState(''); // State to manage new list input
+    const [newItem, setNewItem] = useState({})
     const navigate = useNavigate(); // Hook to manage redirection
+
+    useEffect(() => {
+        const fetchLists = async () => {
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/lists`);
+            console.log(data)
+            setLists(data);
+        }
+        fetchLists()
+    }, [])
 
     // Function to handle input change
     const handleInputChange = (e) => {
-        setNewListName(e.target.value);
+        setNewListTitle(e.target.value);
     };
 
     // Function to handle form submission
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async (e) => {
         e.preventDefault();
-        if (newListName.trim() === '') return; // Prevent empty submissions
+        if (newListTitle.trim() === '') return; // Prevent empty submissions
 
-        // Add new list to lists state
-        setLists([...lists, newListName]);
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/lists`, { title: newListTitle });
+        setNewItem(data)
+        setLists([...lists, newListTitle]);
         alert('Your new list has been successfully created!📋✍🏼');
 
         // Redirect to the new list page
-        navigate(`/list/${newListName.replace(' ', '-')}`);
+        navigate(`/list/${data.list_id}`);
 
         // Clear input field after submission
-        setNewListName('');
+        setNewListTitle('');
     };
 
-    // Function to delete a list item with confirmation
-    const deleteListItem = (e, indexToDelete) => {
-        e.stopPropagation(); // Prevent navigation when clicking the delete button
+    const deleteListItem = async (e, indexToDelete) => {
+        e.stopPropagation();
         const confirmDelete = window.confirm('Are you sure you want to delete this list?');
         if (confirmDelete) {
-            setLists(lists.filter((_, index) => index !== indexToDelete));
+            try {
+                await axios.delete(`${import.meta.env.VITE_API_URL}/lists/${indexToDelete}`);
+                setLists((prevLists) => prevLists.filter((list) => list.list_id !== indexToDelete));
+            }
+            catch {
+                console.error("The list wasn't removed")
+            }
         }
     };
 
-    // Function to handle item click (except bin)
-    const handleItemClick = (listName) => {
-        navigate(`/list/${listName.replace(' ', '-')}`);
+    const handleItemClick = (index) => {
+        navigate(`/list/${index}`);
     };
 
     return (
@@ -49,7 +65,7 @@ const MyLists = () => {
             <form onSubmit={handleFormSubmit} className="my-lists__form">
                 <input
                     type="text"
-                    value={newListName}
+                    value={newListTitle}
                     onChange={handleInputChange}
                     maxLength="50"
                     placeholder="Add a new list..."
@@ -58,16 +74,16 @@ const MyLists = () => {
                 <button type="submit" className="my-lists__submit-button"> + Add List</button>
             </form>
             <ul className="my-lists__list">
-                {lists.map((listName, index) => (
+                {lists.map((list) => (
                     <li
-                        key={index}
+                        key={list.list_id}
                         className="my-lists__item"
-                        onClick={() => handleItemClick(listName)}
+                        onClick={() => handleItemClick(list.list_id)}
                     >
-                        <span className="my-lists__link">{listName}</span>
+                        <span className="my-lists__link">{list.title}</span>
                         <button
                             className="my-lists__delete-button"
-                            onClick={(e) => deleteListItem(e, index)}
+                            onClick={(e) => deleteListItem(e, list.list_id)}
                         >
                             🗑️
                         </button>
