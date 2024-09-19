@@ -6,6 +6,7 @@ import axios from 'axios';
 const ListDetail = () => {
     const { id } = useParams();
     const [listOfItems, setListOfItems] = useState([]);
+    const [newListTitle, setNewListTitle] = useState(''); // New state for the input value
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -13,18 +14,19 @@ const ListDetail = () => {
             setListOfItems(data);
         }
 
-        fetchItems()
-    }, [])
+        fetchItems();
+    }, [id]);
 
     const toggleItemCheck = async (index) => {
-        await axios.put(`${import.meta.env.VITE_API_URL}/lists/${id}/items/${index}`, { completed: !listOfItems.items.find((item) => item.item_id === index).completed });
-        setListOfItems((prevItems) =>
-        ({
-            ...prevItems, items: prevItems.items.map((item) =>
+        await axios.put(`${import.meta.env.VITE_API_URL}/lists/${id}/items/${index}`, {
+            completed: !listOfItems.items.find((item) => item.item_id === index).completed
+        });
+        setListOfItems((prevItems) => ({
+            ...prevItems,
+            items: prevItems.items.map((item) =>
                 item.item_id === index ? { ...item, completed: !item.completed } : item
             )
-        })
-        );
+        }));
     };
 
     const deleteItem = async (indexToDelete) => {
@@ -36,16 +38,52 @@ const ListDetail = () => {
                     ...prevItems,
                     items: prevItems.items.filter((item) => item.item_id !== indexToDelete)
                 }));
-            }
-            catch {
-                console.error("The item wasn't removed")
+            } catch {
+                console.error("The item wasn't removed");
             }
         }
+    };
+
+    // Handle form submission to add a new item
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        if (newListTitle.trim() === '') return; // Don't allow empty items
+
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/lists/${id}/items`, {
+                item_name: newListTitle,
+            });
+            setListOfItems((prevItems) => ({
+                ...prevItems,
+                items: [...prevItems.items, data]
+            }));
+            setNewListTitle(''); // Clear input field after submission
+        } catch (error) {
+            console.error("Failed to add item", error);
+        }
+    };
+
+    // Handle input change for new list item
+    const handleInputChange = (e) => {
+        setNewListTitle(e.target.value);
     };
 
     return (
         <div className="list-detail">
             <h2 className="list-detail__title">{listOfItems.title}</h2>
+
+            <form onSubmit={handleFormSubmit} className="list-detail__form">
+                <input
+                    type="text"
+                    value={newListTitle}
+                    onChange={handleInputChange}
+                    maxLength="50"
+                    placeholder="Add a new item…"
+                    className="list-detail__input"
+                />
+                <button type="submit" className="list-detail__submit-button"> + Add Item</button>
+            </form>
+
             <ul className="list-detail__items">
                 {listOfItems?.items && listOfItems?.items.length > 0 && (listOfItems?.items.map((item) => (
                     <li key={item.item_id} className={`list-detail__item ${item.completed ? 'list-detail__item--checked' : ''}`}>
@@ -58,7 +96,6 @@ const ListDetail = () => {
                             />
                             {item.item_name}
                         </label>
-                        {/* Bin Icon for Deleting the Item */}
                         <span
                             className="list-detail__delete-icon"
                             onClick={() => deleteItem(item.item_id)}
