@@ -12,8 +12,8 @@ const MyLists = () => {
     useEffect(() => {
         const fetchLists = async () => {
             const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/lists`);
-            console.log(data)
-            setLists(data);
+
+            setLists(data.filter((list => list.category_id === null)));
         }
         fetchLists()
     }, [])

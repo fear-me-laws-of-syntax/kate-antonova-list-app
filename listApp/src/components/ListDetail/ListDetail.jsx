@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './ListDetail.scss';
 import axios from 'axios';
+import './ListDetail.scss';
 
 const ListDetail = () => {
     const { id } = useParams();
     const [listOfItems, setListOfItems] = useState([]);
-    const [newListTitle, setNewListTitle] = useState(''); // New state for the input value
+    const [newListTitle, setNewListTitle] = useState('');
 
     useEffect(() => {
         const fetchItems = async () => {

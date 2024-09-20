@@ -9,10 +9,10 @@ import './Suggestions.scss';
 // const router = express.Router();
 
 const suggestionsData = [
-    { title: 'Travel', color: 'soft-pink', imageSrc: 'src/assets/images/travel.jpg' },
-    { title: 'Packing', color: 'soft-green', imageSrc: 'src/assets/images/packing.png' },
-    { title: 'Cleaning', color: 'soft-blue', imageSrc: 'src/assets/images/cleaning.png' },
-    { title: 'Wellness', color: 'soft-purple', imageSrc: 'src/assets/images/health.jpg' },
+    { title: 'Travel', color: 'soft-pink', categoryId: 1, imageSrc: 'src/assets/images/travel.jpg' },
+    { title: 'Packing', color: 'soft-green', categoryId: 2, imageSrc: 'src/assets/images/packing.png' },
+    { title: 'Cleaning', color: 'soft-blue', categoryId: 3, imageSrc: 'src/assets/images/cleaning.png' },
+    { title: 'Wellness', color: 'soft-purple', categoryId: 4, imageSrc: 'src/assets/images/health.jpg' },
 ];
 
 
