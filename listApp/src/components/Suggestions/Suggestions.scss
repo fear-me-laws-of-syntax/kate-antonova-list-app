@@ -2,10 +2,7 @@
 
 .suggestions {
     &__title {
-        text-align: center;
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
-        color: #333;
+        @include title;
     }
 
     &__grid {

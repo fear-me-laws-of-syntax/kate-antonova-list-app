@@ -1,9 +1,10 @@
 @import "../../styles/global.scss";
 
 .list-detail {
+
+    margin-bottom: 3rem;
+
     &__heading {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-container(space-between, center);
     }
 }

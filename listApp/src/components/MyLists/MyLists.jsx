@@ -58,7 +58,7 @@ const MyLists = () => {
 
     return (
         <div className="my-lists">
-            <h1 className="my-lists__header">My Lists</h1>
+            <h2 className="my-lists__header">My Lists</h2>
             {/* Add New List Form */}
             <form onSubmit={handleFormSubmit} className="my-lists__form">
                 <input

@@ -1,9 +1,32 @@
     @import "../../styles/global.scss";
 
     .navbar {
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem;
 
         &__links {
+            list-style-type: none;
             display: flex;
-            justify-content: space-around;
+            gap: 4rem;
+            padding: 0;
         }
+
+        &__item {
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        &__link {
+            text-decoration: none;
+            color: black;
+        }
+
+        &__item.active {
+            background-color: $primary-soft-pink;
+            border-radius: 30px;
+        }
+
     }

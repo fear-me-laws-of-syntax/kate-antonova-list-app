@@ -2,8 +2,7 @@
 
 .my-lists {
     &__header {
-        text-align: center;
-        font-weight: bold;
+        @include title;
     }
 
     &__form {
