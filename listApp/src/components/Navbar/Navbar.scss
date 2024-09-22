@@ -1,7 +1,9 @@
-.navbar {
+    @import "../../styles/global.scss";
 
-    &__links {
-        display: flex;
-        justify-content: space-around;
+    .navbar {
+
+        &__links {
+            display: flex;
+            justify-content: space-around;
+        }
     }
-}

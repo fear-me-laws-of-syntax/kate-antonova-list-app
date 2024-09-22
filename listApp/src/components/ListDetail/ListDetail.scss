@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .list-detail {
     &__title {
         font-size: 24px;
@@ -13,7 +15,7 @@
     &__item {
         margin-bottom: 10px;
         font-size: 18px;
-        background-color: #f9e3f3;
+        background-color: $primary-soft-pink;
         padding: 10px;
         border-radius: 30px;
         display: flex;
@@ -58,7 +60,7 @@
     }
 
     &__input {
-        border: 2px solid #f9e3f3;
+        border: 2px solid $primary-soft-pink;
         border-radius: 30px;
         padding: 0.5rem 1rem;
         font-size: 1rem;
@@ -68,11 +70,11 @@
     }
 
     &__input:focus {
-        border-color: #f9e3f3;
+        border-color: $primary-soft-pink;
     }
 
     &__submit-button {
-        background-color: #f9e3f3;
+        background-color: $primary-soft-pink;
         border: none;
         border-radius: 30px;
         padding: 0.5rem 1rem;
@@ -83,6 +85,6 @@
     }
 
     &__submit-button:hover {
-        background-color: #c87696;
+        background-color: $primary-dark-pink;
     }
 }

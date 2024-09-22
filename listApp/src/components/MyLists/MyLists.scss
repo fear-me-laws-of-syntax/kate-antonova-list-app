@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .my-lists {
     &__header {
         text-align: center;
@@ -12,21 +14,21 @@
     }
 
     &__input {
-        border: 2px solid #f8b3e7;
+        border: 2px solid $primary-medium-pink;
         border-radius: 30px;
         padding: 0.5rem 1rem;
         font-size: 1rem;
         margin-right: 0.5rem;
         outline: none;
-        width: 65%;
+        width: 85%;
     }
 
     &__input:focus {
-        border-color: #f8b3e7;
+        border-color: $primary-medium-pink;
     }
 
     &__submit-button {
-        background-color: #f8b3e7;
+        background-color: $primary-medium-pink;
         border: none;
         border-radius: 30px;
         padding: 0.5rem 1rem;
@@ -37,7 +39,7 @@
     }
 
     &__submit-button:hover {
-        background-color: #c87696;
+        background-color: $primary-dark-pink;
     }
 
     &__list {
@@ -47,7 +49,7 @@
     }
 
     &__item {
-        background-color: #f8b3e7;
+        background-color: $primary-medium-pink;
         border-radius: 30px;
         display: flex;
         align-items: center;

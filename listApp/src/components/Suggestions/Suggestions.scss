@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .suggestions {
     &__title {
         text-align: center;
@@ -42,19 +44,19 @@
         }
 
         &--soft-pink {
-            background-color: #f8b3e7;
+            background-color: $primary-medium-pink;
         }
 
         &--soft-green {
-            background-color: #b8d5b8;
+            background-color: $secondary-color-green;
         }
 
         &--soft-blue {
-            background-color: #a1c4fd;
+            background-color: $secondary-color-blue;
         }
 
         &--soft-purple {
-            background-color: #cda9fa;
+            background-color: $secondary-color-purple;
         }
     }
 
