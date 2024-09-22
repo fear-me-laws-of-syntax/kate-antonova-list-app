@@ -25,7 +25,7 @@ const Suggestions = () => {
 
     return (
         <div className="suggestions">
-            <h2 className="suggestions__title">Inspiration</h2>
+            <h2 className="suggestions__title">Get Inspired</h2>
             <div className="suggestions__grid">
                 {suggestionsData.map((suggestion, index) => (
                     <div

@@ -9,7 +9,7 @@ function Navbar() {
                     <Link to="/" className="navbar__link">My Lists</Link>
                 </li>
                 <li className="navbar__item">
-                    <Link to="/suggestions" className="navbar__link">Inspiration</Link>
+                    <Link to="/suggestions" className="navbar__link">Get Inspired</Link>
                 </li>
             </ul>
         </nav>
