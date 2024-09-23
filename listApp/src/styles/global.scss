@@ -1,0 +1,9 @@
+@import "./partials/typography";
+@import "./partials/variables";
+@import "./partials/mixins";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
