@@ -1,0 +1,85 @@
+@import "../../styles/global.scss";
+
+.suggestions {
+    &__title {
+        @include title;
+    }
+
+    &__grid {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding: 1rem;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        box-sizing: border-box;
+        width: calc(50% - 1rem);
+        margin-bottom: 1rem;
+        max-width: 25rem;
+        cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+        &-title {
+            z-index: 1;
+            font-size: 1.5rem;
+            display: flex;
+            padding-right: 1rem;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        &--soft-pink {
+            background-color: $primary-medium-pink;
+        }
+
+        &--soft-green {
+            background-color: $secondary-color-green;
+        }
+
+        &--soft-blue {
+            background-color: $secondary-color-blue;
+        }
+
+        &--soft-purple {
+            background-color: $secondary-color-purple;
+        }
+    }
+
+    &__image-container {
+        position: absolute;
+        top: 50%;
+        right: -10%;
+        width: 60%;
+        height: 60%;
+        transform: translateY(-50%) rotate(10deg);
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
