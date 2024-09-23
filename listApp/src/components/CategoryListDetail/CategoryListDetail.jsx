@@ -20,7 +20,6 @@ const CategoryListDetail = () => {
         fetchItems();
     }, [id]);
     const useListHandler = async () => {
-        // console.log({ ...listOfItems, category_id: null })
         const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/lists`, { ...listOfItems, category_id: null });
         if (data) {
             await Promise.all(

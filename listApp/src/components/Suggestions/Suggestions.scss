@@ -7,9 +7,16 @@
 
     &__grid {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
         justify-content: space-around;
-        padding: 0 1rem;
+        align-items: center;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: center;
+            gap: 0.5rem;
+        }
     }
 
     &__item {
@@ -26,8 +33,9 @@
         box-sizing: border-box;
         width: calc(50% - 1rem);
         margin-bottom: 1rem;
-        max-width: 20rem;
+        max-width: 25rem;
         cursor: pointer;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 
         &-title {
             z-index: 1;

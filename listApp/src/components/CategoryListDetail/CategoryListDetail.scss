@@ -8,3 +8,20 @@
         @include flex-container(space-between, center);
     }
 }
+
+.category-lists__items {
+    text-decoration: none;
+}
+
+
+.list-detail__submit-button {
+    background-color: $secondary-color-blue;
+}
+
+.list-detail__item {
+    font-size: 1.5rem;
+}
+
+#root>div>ul>a:nth-child(1)>li {
+    text-decoration: none;
+}
