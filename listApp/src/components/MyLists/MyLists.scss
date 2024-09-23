@@ -1,0 +1,82 @@
+@import "../../styles/global.scss";
+
+.my-lists {
+    &__header {
+        @include title;
+    }
+
+    &__form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        border: 2px solid $primary-medium-pink;
+        border-radius: 30px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        margin-right: 0.5rem;
+        outline: none;
+        width: 85%;
+    }
+
+    &__input:focus {
+        border-color: $primary-medium-pink;
+    }
+
+    &__submit-button {
+        background-color: $primary-medium-pink;
+        border: none;
+        border-radius: 30px;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 30%;
+    }
+
+    &__submit-button:hover {
+        background-color: $primary-dark-pink;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        background-color: $primary-medium-pink;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e7a6d6;
+        }
+    }
+
+    &__link {
+        padding-left: 1rem;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__delete-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        margin-left: 1rem;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

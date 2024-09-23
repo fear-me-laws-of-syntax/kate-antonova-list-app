@@ -1,0 +1,55 @@
+@import "../../styles/global.scss";
+
+.category-lists {
+    &__title {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    &__items {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        @include list-item($primary-soft-pink, 24px, 0.5rem 2rem);
+        cursor: pointer;
+        @include transition(background-color, 0.3s, ease);
+
+        &:hover {
+            background-color: $primary-soft-pink;
+        }
+    }
+
+    &__item--checked {
+        text-decoration: line-through;
+        color: rgb(189, 177, 177);
+    }
+
+    &__label {
+        @include flex-container(flex-start, center);
+        cursor: pointer;
+    }
+
+    &__checkbox {
+        @include checkbox(16px, rgb(89, 138, 89));
+    }
+
+    &__form {
+        @include flex-container(center, center);
+        margin-bottom: 2rem;
+    }
+
+    &__input {
+        @include input-field($primary-soft-pink, $primary-soft-pink);
+        margin-right: 0.5rem;
+        width: 65%;
+    }
+
+    &__submit-button {
+        @include button($primary-soft-pink, $primary-dark-pink);
+        width: 30%;
+    }
+}
