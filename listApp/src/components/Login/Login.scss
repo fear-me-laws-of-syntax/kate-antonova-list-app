@@ -1,3 +1,5 @@
+@import "../../styles/global.scss";
+
 .login {
     width: 300px;
     margin: 100px auto;
@@ -49,8 +51,7 @@
     &__button {
         width: 100%;
         padding: 0.5rem;
-        background-color: #a6dcef;
-        /* Adjust button color to match your design */
+        background-color: $secondary-color-blue;
         border: none;
         border-radius: 30px;
         font-size: 1rem;
@@ -59,7 +60,6 @@
 
         &:hover {
             background-color: #89c2e3;
-            /* Slightly darker blue on hover */
         }
     }
 }

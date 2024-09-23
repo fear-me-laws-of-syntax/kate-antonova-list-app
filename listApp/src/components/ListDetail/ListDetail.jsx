@@ -44,7 +44,6 @@ const ListDetail = () => {
         }
     };
 
-    // Handle form submission to add a new item
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         if (newListTitle.trim() === '') return;
@@ -63,7 +62,6 @@ const ListDetail = () => {
         }
     };
 
-    // Handle input change for new list item
     const handleInputChange = (e) => {
         setNewListTitle(e.target.value);
     };

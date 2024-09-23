@@ -4,6 +4,7 @@
         display: flex;
         justify-content: space-around;
         padding: 1rem;
+        margin-bottom: 2rem;
 
         &__links {
             list-style-type: none;
@@ -32,5 +33,4 @@
             background-color: $primary-soft-pink;
             border-radius: 30px;
         }
-
     }

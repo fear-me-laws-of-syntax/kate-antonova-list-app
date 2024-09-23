@@ -4,11 +4,10 @@ import './MyLists.scss';
 import { useEffect, useState } from 'react';
 
 const MyLists = () => {
-    const [lists, setLists] = useState([]); // Example data
-    const [newListTitle, setNewListTitle] = useState(''); // State to manage new list input
+    const [lists, setLists] = useState([]); 
+    const [newListTitle, setNewListTitle] = useState(''); 
     const [newItem, setNewItem] = useState({})
-    const navigate = useNavigate(); // Hook to manage redirection
-
+    const navigate = useNavigate(); 
     useEffect(() => {
         const fetchLists = async () => {
             const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/lists`);
@@ -18,15 +17,13 @@ const MyLists = () => {
         fetchLists()
     }, [])
 
-    // Function to handle input change
     const handleInputChange = (e) => {
         setNewListTitle(e.target.value);
     };
 
-    // Function to handle form submission
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-        if (newListTitle.trim() === '') return; // Prevent empty submissions
+        if (newListTitle.trim() === '') return; 
 
         const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/lists`, { title: newListTitle });
         setNewItem(data)
@@ -59,7 +56,7 @@ const MyLists = () => {
     return (
         <div className="my-lists">
             <h2 className="my-lists__header">My Lists</h2>
-            {/* Add New List Form */}
+
             <form onSubmit={handleFormSubmit} className="my-lists__form">
                 <input
                     type="text"

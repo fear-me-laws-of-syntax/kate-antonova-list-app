@@ -9,7 +9,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('Welcome to your Lists!💫 \nPlease add your 1st list by giving it a name.📋✍🏼'); // Adjusted user-friendly message
+        alert('Welcome to your Lists!💫 \nPlease add your 1st list by giving it a name.📋✍🏼'); 
         navigate('/');
     };
 

@@ -1,12 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-
-
 import './Suggestions.scss';
-
-// import express from 'express';
-// const router = express.Router();
 
 const suggestionsData = [
     { title: 'Travel', color: 'soft-pink', categoryId: 1, imageSrc: 'src/assets/images/travel.jpg' },
@@ -14,7 +7,6 @@ const suggestionsData = [
     { title: 'Cleaning', color: 'soft-blue', categoryId: 3, imageSrc: 'src/assets/images/cleaning.png' },
     { title: 'Wellness', color: 'soft-purple', categoryId: 4, imageSrc: 'src/assets/images/health.jpg' },
 ];
-
 
 const Suggestions = () => {
     const navigate = useNavigate();

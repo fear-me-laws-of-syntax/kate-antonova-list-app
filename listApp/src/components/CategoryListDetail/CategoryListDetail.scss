@@ -1,27 +1,25 @@
 @import "../../styles/global.scss";
 
 .list-detail {
-
     margin-bottom: 3rem;
 
     &__heading {
+        margin-bottom: 2rem;
+
         @include flex-container(space-between, center);
+    }
+
+    &__submit-button {
+        background-color: $secondary-color-blue;
+    }
+
+    &__item {
+        font-size: 1.5rem;
     }
 }
 
-.category-lists__items {
-    text-decoration: none;
-}
-
-
-.list-detail__submit-button {
-    background-color: $secondary-color-blue;
-}
-
-.list-detail__item {
-    font-size: 1.5rem;
-}
-
-#root>div>ul>a:nth-child(1)>li {
-    text-decoration: none;
+.category-lists {
+    &__items {
+        text-decoration: none;
+    }
 }
